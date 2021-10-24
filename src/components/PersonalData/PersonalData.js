@@ -12,19 +12,32 @@ const PersonalData = ({ title, onSubmit }) => {
     birthdate: "",
     email: "",
   };
+
   const [personalData, setPersonalData] = useState(initialData);
 
   const handleOnChange = (event) => {
-    setPersonalData({ ...personalData, [event.target.id]: event.target.value });
+    setPersonalData({
+      ...personalData,
+      [event.target.id]: event.target.value,
+    });
   };
 
-  const submitPersonalData = (event) => {
-    event.preventDefault();
+  const buttonStatus = () => {
+    if (
+      personalData.name &&
+      personalData.lastName &&
+      personalData.birthdate &&
+      personalData.email
+    ) {
+      return false;
+    } else {
+      return true;
+    }
   };
 
   return (
     <>
-      <form className={"form-container"} onSubmit={submitPersonalData}>
+      <form className={"form-container"}>
         <h2>{title}</h2>
         <Input
           onChangeAction={handleOnChange}
@@ -50,7 +63,7 @@ const PersonalData = ({ title, onSubmit }) => {
           label={"birthdate"}
           value={personalData.birthdate}
         />
-        <span>{"Test-Age"}</span>
+        <span>{"Age :"}</span>
         <Input
           onChangeAction={handleOnChange}
           text={"E-mail"}
@@ -59,10 +72,10 @@ const PersonalData = ({ title, onSubmit }) => {
           label={"email"}
           value={personalData.email}
         />
-        <button type="submit">Submit</button>
         <Navigation
           text={"Siguiente"}
           actionOnClick={navigationForward}
+          disabled={buttonStatus()}
         ></Navigation>
       </form>
     </>

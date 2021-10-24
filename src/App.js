@@ -38,12 +38,12 @@ function App() {
         {page === 0 && <PersonalData title={"Personal Data"}></PersonalData>}
         {page === 1 && (
           <form className="form-container">
-            <AccesData />
+            <AccesData title={"Acces Data"} />
           </form>
         )}
         {page === 2 && (
           <form className="form-container">
-            <Login />
+            <Login title={"Login"} />
           </form>
         )}
       </FormContext.Provider>
