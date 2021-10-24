@@ -16,12 +16,10 @@ const PersonalData = ({ title, onSubmit }) => {
 
   const handleOnChange = (event) => {
     setPersonalData({ ...personalData, [event.target.id]: event.target.value });
-    console.log(personalData);
   };
 
   const submitPersonalData = (event) => {
     event.preventDefault();
-    console.log(personalData);
   };
 
   return (
