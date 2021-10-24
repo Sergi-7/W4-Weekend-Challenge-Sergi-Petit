@@ -3,7 +3,7 @@ import { screen, render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 describe("Given a Navigation component", () => {
-  describe("When it receives an actionOnClick with a test function", () => {
+  describe("When it receives an actionOnClick with a function", () => {
     test("Then it should trigger the testFunction", () => {
       const testFunction = jest.fn();
 
