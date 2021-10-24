@@ -6,9 +6,24 @@ import FormContext from "./context/FormContext";
 import { useState } from "react";
 
 function App() {
-  const [page, setPage] = useState();
+  const pageNum = 0;
+  const [page, setPage] = useState(pageNum);
 
-  const [receivedInput, setReceivedInput] = useState();
+  const navigationForward = () => {
+    if (page === 2) {
+      setPage(2);
+    } else {
+      setPage(page + 1);
+    }
+  };
+
+  const navigationBackwards = () => {
+    if (page === 0) {
+      setPage(0);
+    } else {
+      setPage(page - 1);
+    }
+  };
 
   return (
     <>
@@ -16,18 +31,21 @@ function App() {
         value={{
           page,
           setPage,
-          receivedInput,
-          setReceivedInput,
+          navigationBackwards,
+          navigationForward,
         }}
       >
-        <PersonalData title={"Personal Data"} onSubmit={}></PersonalData>
-
-        <form className="form-container">
-          <AccesData />
-        </form>
-        <form className="form-container">
-          <Login />
-        </form>
+        {page === 0 && <PersonalData title={"Personal Data"}></PersonalData>}
+        {page === 1 && (
+          <form className="form-container">
+            <AccesData />
+          </form>
+        )}
+        {page === 2 && (
+          <form className="form-container">
+            <Login />
+          </form>
+        )}
       </FormContext.Provider>
     </>
   );

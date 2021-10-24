@@ -1,8 +1,11 @@
 import Navigation from "../Navigation/Navigation";
 import Input from "../Input/Input";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import FormContext from "../../context/FormContext";
 
 const PersonalData = ({ title, onSubmit }) => {
+  const { navigationForward } = useContext(FormContext);
+
   const initialData = {
     name: "",
     lastName: "",
@@ -18,7 +21,7 @@ const PersonalData = ({ title, onSubmit }) => {
 
   const submitPersonalData = (event) => {
     event.preventDefault();
-    onSubmit(personalData);
+    console.log(personalData);
   };
 
   return (
@@ -59,7 +62,10 @@ const PersonalData = ({ title, onSubmit }) => {
           value={personalData.email}
         />
         <button type="submit">Submit</button>
-        <Navigation text={"Siguiente"}></Navigation>
+        <Navigation
+          text={"Siguiente"}
+          actionOnClick={navigationForward}
+        ></Navigation>
       </form>
     </>
   );
