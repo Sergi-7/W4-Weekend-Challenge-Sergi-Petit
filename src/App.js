@@ -13,11 +13,15 @@ function App() {
   return (
     <>
       <FormContext.Provider
-        value={{ page, setPage, receivedInput, setReceivedInput }}
+        value={{
+          page,
+          setPage,
+          receivedInput,
+          setReceivedInput,
+        }}
       >
-        <form className="form-container">
-          <PersonalData title={"Personal Data"}></PersonalData>
-        </form>
+        <PersonalData title={"Personal Data"} onSubmit={}></PersonalData>
+
         <form className="form-container">
           <AccesData />
         </form>

@@ -7,7 +7,7 @@ const Login = () => {
       <Input text={"Username"}></Input>
       <Input text={"Password"}></Input>
       <input type="checkbox" id={"password-checkbox"}></input>
-      <label for={"password-checkbox"}>{"Remember Password?"}</label>
+      <label htmlFor={"password-checkbox"}>{"Remember Password?"}</label>
       <Navigation text={"Siguiente"} />
       <Navigation text={"Atrás"} />
     </>
