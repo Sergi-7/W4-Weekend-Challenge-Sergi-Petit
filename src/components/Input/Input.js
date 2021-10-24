@@ -1,4 +1,4 @@
-const Input = ({ text, type, label, id, onChangeAction }) => {
+const Input = ({ text, type, label, id, onChangeAction, value }) => {
   return (
     <div className="form-group">
       <label htmlFor={label}>{text}</label>
@@ -6,6 +6,7 @@ const Input = ({ text, type, label, id, onChangeAction }) => {
         onChange={onChangeAction}
         type={type}
         id={id}
+        value={value}
         className="form-control"
       ></input>
     </div>
